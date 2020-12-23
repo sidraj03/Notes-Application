@@ -32,12 +32,12 @@ public class TodoController {
 		return "todo";
 	}
 	
-	@GetMapping("/register")
-	
-	public String takeInput() {
-		return "registration";
-	}
-	
+//	@GetMapping("/register")
+//	
+//	public String takeInput() {
+//		return "registration";
+//	}
+//	
 	@PostMapping("/save")
 	
 	public String saveTodo(@ModelAttribute("formTodo") Todo todo) {
