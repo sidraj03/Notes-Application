@@ -107,16 +107,33 @@
 				
 				 <div class="col-md-6 w-25">
 				<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" th:each="todo:${newTodo}">
-				    <div class="col p-4 d-flex flex-column position-static">
-				      <strong class="d-inline-block mb-2 text-primary" th:text="${todo.title}?:''"></strong>
-				        <h3 class="mb-0">Featured post</h3>
-				        <div class="mb-1 text-muted">Nov 12</div>
+				  <form action="#" th:action="@{/delete}" th:object="${formTodo}" method="post">
+				    <div class="tododiv col p-4 d-flex flex-column position-static">
+<!-- 				      <input type="hidden" th:value="${todo.id}" name="todoid">
+ -->				      <strong class="d-inline-block mb-2 text-primary" th:text="${todo.title}?:''" ></strong>
 				        <p class="card-text mb-auto" th:text="${todo.text}?:''" ></p>
+				       <a href="#" th:href="@{/delete}+'/'+'?id='+${todo.id}" type="button" class="btn-image white-text" mdbBtn mdbWavesEffect></a>
+				        <!-- <button type="button" class="btn-image white-text" mdbBtn mdbWavesEffect></button> -->
+				        <!-- <img src="images/deleteicon.png"></img> -->
 				    </div>
+				   </form>
 				  </div>
 				  </div>
 				
-				  <div class="col-md-6 w-25">
+				  <!-- <div class="col-md-6 w-25">
+				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				    <div class="col p-4 d-flex flex-column position-static">
+				        <strong class="d-inline-block mb-2 text-success">Design</strong>
+				        <h3 class="mb-0">Post title</h3>
+				        <div class="mb-1 text-muted">Nov 11</div>
+				        <p class="mb-auto">This is a wider card with supporting text below as a natural
+				            lead-in to additional content.</p>
+				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
+				    </div>
+				</div>
+				</div>
+ -->				
+				<!--  <div class="col-md-6 w-25">
 				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 				    <div class="col p-4 d-flex flex-column position-static">
 				        <strong class="d-inline-block mb-2 text-success">Design</strong>
@@ -153,20 +170,7 @@
 				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
 				    </div>
 				</div>
-				</div>
-				
-				 <div class="col-md-6 w-25">
-				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-				    <div class="col p-4 d-flex flex-column position-static">
-				        <strong class="d-inline-block mb-2 text-success">Design</strong>
-				        <h3 class="mb-0">Post title</h3>
-				        <div class="mb-1 text-muted">Nov 11</div>
-				        <p class="mb-auto">This is a wider card with supporting text below as a natural
-				            lead-in to additional content.</p>
-				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
-				    </div>
-				</div>
-				</div>
+				</div> -->
 				
 				</div>
 				

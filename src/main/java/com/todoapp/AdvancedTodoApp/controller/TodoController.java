@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.todoapp.AdvancedTodoApp.entity.Todo;
 import com.todoapp.AdvancedTodoApp.entity.User;
@@ -66,11 +67,11 @@ public class TodoController {
 		  return "redirect:/list";
 	}
 	
-//	@GetMapping("/display")
-//	
-//	public String displayTodo(@ModelAttribute("model") Todo todo, Model dispModel){
-//		dispModel.addAttribute("newTodo",todo);
-//		return "todo";
-//	}
+	@GetMapping("/delete")
+	
+	public String displayTodo(@RequestParam("id") int theId){
+		todoService.deleteById(theId);
+		return "redirect:/list";
+	}
 	
 }
