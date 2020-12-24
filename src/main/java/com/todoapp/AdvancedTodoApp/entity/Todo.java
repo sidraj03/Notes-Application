@@ -3,6 +3,7 @@ package com.todoapp.AdvancedTodoApp.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,17 +29,17 @@ public class Todo {
 	@Column(name="notes_category")
 	private String category;
 	
-//	
-//	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE,
-//            CascadeType.DETACH,CascadeType.REFRESH})
-//    @JoinColumn(name="instructor_id")
-	private int user;
-//	
+
+	@ManyToOne(fetch=FetchType.LAZY,cascade= {CascadeType.PERSIST,CascadeType.MERGE,
+            CascadeType.DETACH,CascadeType.REFRESH})
+    @JoinColumn(name="user")
+	private User user;
+
 	public Todo() {
 		
 	}
 
-	public Todo(String title, String text, String category) {
+	public Todo(String title, String text, String category,User user) {
 		this.title = title;
 		this.text = text;
 		this.category = category;
@@ -77,18 +78,21 @@ public class Todo {
 		this.category = category;
 	}
 
-	@Override
-	public String toString() {
-		return "Todo [id=" + id + ", title=" + title + ", text=" + text + ", category=" + category + "]";
-	}
-
-	public int getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(int user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
+
+	@Override
+	public String toString() {
+		return "Todo [id=" + id + ", title=" + title + ", text=" + text + ", category=" + category + ", user=" + user
+				+ "]";
+	}
+
+	
 
 
 

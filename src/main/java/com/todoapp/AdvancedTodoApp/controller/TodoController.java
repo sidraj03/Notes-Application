@@ -1,5 +1,6 @@
 package com.todoapp.AdvancedTodoApp.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,23 +11,37 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.todoapp.AdvancedTodoApp.entity.Todo;
+import com.todoapp.AdvancedTodoApp.entity.User;
 import com.todoapp.AdvancedTodoApp.service.TodoService;
+import com.todoapp.AdvancedTodoApp.service.UserService;
 
 @Controller
 public class TodoController {
 
 	@Autowired
 	TodoService todoService;
+
+	@Autowired
+	UserService userService;
 	
 	@GetMapping("/list")
 	
-	public String listTodo(ModelMap map) {
+	public String listTodo(Principal principal,ModelMap map) {
 		
-		List<Todo> list=todoService.findAll();	
+		//get the user by username
+		String currentUser=principal.getName();
+		User user=userService.findByUsername(currentUser);
+
+		//retrieve all the notes of a particular user 
+		List<Todo> list=user.getTodos();
 		
+		//an empty todo object to add to the formtodo to get values
 		Todo todo=new Todo();
+		
+		//add the value to this form
 		map.addAttribute("formTodo",todo);
 
+		//add the list to the newtodo model to get the list of todos
 		map.addAttribute("newTodo",list);
 		
 		return "todo";
@@ -40,8 +55,13 @@ public class TodoController {
 //	
 	@PostMapping("/save")
 	
-	public String saveTodo(@ModelAttribute("formTodo") Todo todo) {
-		  todo.setUser(1);
+	public String saveTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
+
+		  //get the user by username
+		  String currentUser=principal.getName();
+		  User user=userService.findByUsername(currentUser);
+		  
+		  todo.setUser(user);
 		  todoService.save(todo);
 		  return "redirect:/list";
 	}

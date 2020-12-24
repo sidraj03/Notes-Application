@@ -1,11 +1,18 @@
 package com.todoapp.AdvancedTodoApp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="user")
@@ -31,27 +38,23 @@ public class User {
 	
 	@Column(name="user_name")
 	private String username;
+
 	
+	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	private List<Todo> todos;
 	
 	public User()
 	{
 		
 	}
 
-	public User(String firstname, String lastname, String password, String email,String username) {
+	public User(String firstname, String lastname, String password, String email,String username,List<Todo> todos) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.password = password;
 		this.email = email;
 		this.username=username;
-	}
-
-	public int getUser_id() {
-		return userId;
-	}
-
-	public void setUser_id(int user_id) {
-		this.userId = user_id;
+		this.todos=todos;
 	}
 
 	public String getFirstname() {
@@ -94,11 +97,32 @@ public class User {
 		this.username = username;
 	}
 
-	@Override
-	public String toString() {
-		return "User [user_id=" + userId + ", firstname=" + firstname + ", lastname=" + lastname + ", password="
-				+ password + ", email=" + email + ", username=" + username + "]";
+	public int getUserId() {
+		return userId;
 	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public List<Todo> getTodos() {
+		return todos;
+	}
+
+	public void setTodos(List<Todo> todos) {
+		this.todos = todos;
+	}
+	
+	//add a convenience method
+	public void addTodo(Todo theTodo) {
+			
+			if(theTodo== null) {
+				todos=new ArrayList<>();
+			}
+			
+			todos.add(theTodo);
+	}
+
 	
 	
 

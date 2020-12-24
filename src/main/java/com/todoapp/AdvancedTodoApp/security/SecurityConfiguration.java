@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -36,7 +37,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 .formLogin()
 		  .loginPage("/login")
 		  .defaultSuccessUrl("/list", true)
-		  .permitAll();
+		  .permitAll()
+		 .and()
+		  .logout()
+	       .logoutRequestMatcher(new AntPathRequestMatcher("/login?logout"))
+//		  .logoutUrl("/logout")
+//		  .logoutSuccessUrl("/login?logout")
+		  .invalidateHttpSession(true)
+		  .deleteCookies("JSESSIONID");
 	}
 
 	
