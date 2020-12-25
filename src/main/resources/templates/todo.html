@@ -98,15 +98,17 @@
 	                </div>
 	
 	             </form> 
-	
+	        </div>
 	           
 	           <!-- Note cards -->
 	
-				<div class="row mb-2">
+				<!-- <div class="row mb-2"> -->
 				
 				
-				 <div class="col-md-6 w-25">
-				<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" th:each="todo:${newTodo}">
+			   <div class="row">
+			    <div id="notesdiv" class="col-md-6 w-25 ms-4" th:each="todo:${newTodo}">
+				<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				  
 				  <form action="#" th:action="@{/delete}" th:object="${formTodo}" method="post">
 				    <div class="tododiv col p-4 d-flex flex-column position-static">
 <!-- 				      <input type="hidden" th:value="${todo.id}" name="todoid">
@@ -117,68 +119,17 @@
 				        <!-- <img src="images/deleteicon.png"></img> -->
 				    </div>
 				   </form>
-				  </div>
-				  </div>
-				
-				  <!-- <div class="col-md-6 w-25">
-				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-				    <div class="col p-4 d-flex flex-column position-static">
-				        <strong class="d-inline-block mb-2 text-success">Design</strong>
-				        <h3 class="mb-0">Post title</h3>
-				        <div class="mb-1 text-muted">Nov 11</div>
-				        <p class="mb-auto">This is a wider card with supporting text below as a natural
-				            lead-in to additional content.</p>
-				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
-				    </div>
-				</div>
-				</div>
- -->				
-				<!--  <div class="col-md-6 w-25">
-				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-				    <div class="col p-4 d-flex flex-column position-static">
-				        <strong class="d-inline-block mb-2 text-success">Design</strong>
-				        <h3 class="mb-0">Post title</h3>
-				        <div class="mb-1 text-muted">Nov 11</div>
-				        <p class="mb-auto">This is a wider card with supporting text below as a natural
-				            lead-in to additional content.</p>
-				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
-				    </div>
-				</div>
-				</div>
-				
-				 <div class="col-md-6 w-25">
-				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-				    <div class="col p-4 d-flex flex-column position-static">
-				        <strong class="d-inline-block mb-2 text-success">Design</strong>
-				        <h3 class="mb-0">Post title</h3>
-				        <div class="mb-1 text-muted">Nov 11</div>
-				        <p class="mb-auto">This is a wider card with supporting text below as a natural
-				            lead-in to additional content.</p>
-				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
-				    </div>
-				</div>
-				</div>
-				
-				 <div class="col-md-6 w-25">
-				  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-				    <div class="col p-4 d-flex flex-column position-static">
-				        <strong class="d-inline-block mb-2 text-success">Design</strong>
-				        <h3 class="mb-0">Post title</h3>
-				        <div class="mb-1 text-muted">Nov 11</div>
-				        <p class="mb-auto">This is a wider card with supporting text below as a natural
-				            lead-in to additional content.</p>
-				        <p th:text="'Time on the server is'+${theDate}" class="funny"/>
-				    </div>
-				</div>
-				</div> -->
-				
-				</div>
-				
-				
-				</div>
-			</div>
-		
+				   
+				 </div>
+				  
+				 </div>
+				  
+		    </div>
+					
 		</div>
+ 	  </div>
+		
+	<!-- 	</div> -->
 	
 	    <!-- Optional JavaScript; choose one of the two! -->
 	

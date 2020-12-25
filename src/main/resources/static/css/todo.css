@@ -99,6 +99,10 @@ ul ul a {
     background-size: 20px 20px;
     border:none;
 }
+#notesdiv{
+	word-wrap: break-word;
+}
+
 /* #notesinput{
     /* height:70%;
     width: 65%; */
