@@ -21,22 +21,22 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="user_id")
+//	@Column(name="user_id")
 	private int userId;
 	
-	@Column(name="first_name")
+//	@Column(name="first_name")
 	private String firstname;
 	
-	@Column(name="last_name")
+//	@Column(name="last_name")
 	private String lastname;
 	
-	@Column(name="password")
+//	@Column(name="password")
 	private String password;
 	
-	@Column(name="email")
+//	@Column(name="email")
 	private String email;
 	
-	@Column(name="user_name")
+//	@Column(name="user_name")
 	private String username;
 
 	
