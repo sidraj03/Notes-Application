@@ -27,7 +27,8 @@ public class RegistrationController {
 	   user.setPassword("12345");
 	   user.setEmail("abc@gmail.com");
 	   user.setUsername("sid");
-	   model.addAttribute("registerModel",user);
+	   userService.save(user);
+//	   model.addAttribute("registerModel",user);
 	   return "redirect:/login";
 //	   return "registration";
 	}
