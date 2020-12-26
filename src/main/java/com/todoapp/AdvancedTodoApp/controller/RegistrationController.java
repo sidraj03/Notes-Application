@@ -19,7 +19,7 @@ public class RegistrationController {
 	//mapping to get to the page
 	
 	@GetMapping("/register")
-	public String openRegisterForm(Model model){
+	public String openRegisterForm(){
 	   User user=new User();
 	   user.setUserId(1);
 	   user.setFirstname("sid");

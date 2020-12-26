@@ -38,7 +38,6 @@ public class User {
 	
 	@Column(name="user_name")
 	private String username;
-
 	
 	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	private List<Todo> todos;
@@ -54,7 +53,7 @@ public class User {
 		this.password = password;
 		this.email = email;
 		this.username=username;
-		this.todos=todos;
+//		this.todos=todos;
 	}
 
 	public String getFirstname() {
@@ -113,7 +112,7 @@ public class User {
 		this.todos = todos;
 	}
 	
-	//add a convenience method
+//	add a convenience method
 	public void addTodo(Todo theTodo) {
 			
 			if(theTodo== null) {
