@@ -32,18 +32,18 @@ public class Todo {
 
 	@ManyToOne(fetch=FetchType.LAZY,cascade= {CascadeType.PERSIST,CascadeType.MERGE,
             CascadeType.DETACH,CascadeType.REFRESH})
-    @JoinColumn(name="user")
-	private User user;
+    @JoinColumn(name="user_con")
+	private User targetUser;
 
 	public Todo() {
 		
 	}
 
-	public Todo(String title, String text, String category,User user) {
+	public Todo(String title, String text, String category,User targetUser) {
 		this.title = title;
 		this.text = text;
 		this.category = category;
-		this.user = user;
+		this.targetUser = targetUser;
 	}
 
 	public int getId() {
@@ -78,20 +78,30 @@ public class Todo {
 		this.category = category;
 	}
 
-	public User getUser() {
-		return user;
+//	public User getUsercon() {
+//		return usercon;
+//	}
+//
+//	public void setUsercon(User usercon) {
+//		this.usercon = usercon;
+//	}
+
+	public User getTargetUser() {
+		return targetUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setTargetUser(User targetUser) {
+		this.targetUser = targetUser;
 	}
 
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", title=" + title + ", text=" + text + ", category=" + category + ", user=" + user
-				+ "]";
+		return "Todo [id=" + id + ", title=" + title + ", text=" + text + ", category=" + category + ", targetUser="
+				+ targetUser + "]";
 	}
 
+	
+	
 	
 
 

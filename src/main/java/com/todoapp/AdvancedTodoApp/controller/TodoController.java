@@ -59,9 +59,9 @@ public class TodoController {
 
 		  //get the user by username
 		  String currentUser=principal.getName();
-		  User user=userService.findByUsername(currentUser);
+		  User currUser=userService.findByUsername(currentUser);
 		  
-		  todo.setUser(user);
+		  todo.setTargetUser(currUser);
 		  todoService.save(todo);
 		  return "redirect:/list";
 	}
