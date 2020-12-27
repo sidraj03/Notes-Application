@@ -39,7 +39,7 @@ public class Todo {
 		
 	}
 
-	public Todo(String title, String text, String category,User user) {
+	public Todo(String title, String text, String category) { //User user) {
 		this.title = title;
 		this.text = text;
 		this.category = category;
