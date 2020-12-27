@@ -21,27 +21,27 @@ public class RegistrationController {
 	@GetMapping("/register")
 	public String openRegisterForm(Model model){
 	   User user=new User();
-//	   user.setUserId(1);
-//	   user.setFirstname("sid");
-//	   user.setLastname("mig");
-//	   user.setPassword("12345");
-//	   user.setEmail("abc@gmail.com");
-//	   user.setUsername("sid");
-//	   userService.save(user);
+	   user.setUserId(1);
+	   user.setFirstname("sid");
+	   user.setLastname("mig");
+	   user.setPassword("12345");
+	   user.setEmail("abc@gmail.com");
+	   user.setUsername("sid");
+	   userService.save(user);
 	  
 	   model.addAttribute("registerModel",user);
-	   return "registration";
+	   return "redirect:/login";
 	}
 	
 	//add mapping for POST /register - add new users
 	
-	@PostMapping("/saveUser")
-	public String addUser(@ModelAttribute("registerModel") User user) {
-		 user.setUserId(1);  //dont forget to change to 0 after debugging
-		 userService.save(user);
-		 return "redirect:/login";
-	}
-	
+//	@PostMapping("/saveUser")
+//	public String addUser(@ModelAttribute("registerModel") User user) {
+//		 user.setUserId(1);  //dont forget to change to 0 after debugging
+//		 userService.save(user);
+//		 return "redirect:/login";
+//	}
+//	
 	
 	
 }
