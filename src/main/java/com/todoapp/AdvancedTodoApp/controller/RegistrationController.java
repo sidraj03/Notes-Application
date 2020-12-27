@@ -23,7 +23,7 @@ public class RegistrationController {
 
 	   User user=new User();
 	   
-	   user.setUserId(1);
+//	   user.setUserId(1);
 	   user.setFirstname("sid");
 	   user.setLastname("mig");
 	   user.setPassword("12345");

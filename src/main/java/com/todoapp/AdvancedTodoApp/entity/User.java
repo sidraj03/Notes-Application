@@ -103,6 +103,16 @@ public class User {
 		this.userId = userId;
 	}
 
+	public User(int userId, String firstname, String lastname, String password, String email, String username) {
+		this.userId = userId;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.password = password;
+		this.email = email;
+		this.username = username;
+	}
+
+	
 //	public List<Todo> getTodos() {
 //		return todos;
 //	}
