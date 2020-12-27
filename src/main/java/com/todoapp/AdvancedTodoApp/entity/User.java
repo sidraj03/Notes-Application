@@ -30,14 +30,14 @@ public class User {
 	@Column(name="last_name")
 	private String lastname;
 	
-//	@Column(name="password")
-//	private String password;
-//	
-//	@Column(name="email")
-//	private String email;
-//	
-//	@Column(name="user_name")
-//	private String username;
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="user_name")
+	private String username;
 	
 //	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 //	private List<Todo> todos;
@@ -46,12 +46,12 @@ public class User {
 		
 	}
 
-	public User(String firstname, String lastname) { //String password, String email,String username){   //List<Todo> todos) {
+	public User(String firstname, String lastname,String password, String email,String username){   //List<Todo> todos) {
 		this.firstname = firstname;
 		this.lastname = lastname;
-//		this.password = password;
-//		this.email = email;
-//		this.username=username;
+		this.password = password;
+		this.email = email;
+		this.username=username;
 //		this.todos=todos;
 	}
 
@@ -78,38 +78,39 @@ public class User {
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
 
-	public User(int userid, String firstname, String lastname) {
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public User(int userid, String firstname, String lastname, String password, String email, String username) {
 		this.userid = userid;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.password = password;
+		this.email = email;
+		this.username = username;
 	}
-	
-	
-
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	public String getUsername() {
-//		return username;
-//	}
-//
-//	public void setUsername(String username) {
-//		this.username = username;
-//	}
 
 	
 

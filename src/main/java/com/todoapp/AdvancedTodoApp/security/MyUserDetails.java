@@ -14,9 +14,8 @@ public class MyUserDetails implements UserDetails {
 	private String password;
 	
 	public MyUserDetails(User user) {
-//		this.username=user.getUsername();
-//		this.password=user.getPassword();
-		
+		this.username=user.getUsername();
+		this.password=user.getPassword();	
 	}
 	
 	@Override

@@ -26,9 +26,9 @@ public class RegistrationController {
 //	   user.setUserId(1);
 	   user.setFirstname("sid");
 	   user.setLastname("mig");
-//	   user.setPassword("12345");
-//	   user.setEmail("abc@gmail.com");
-//	   user.setUsername("sid");
+	   user.setPassword("12345");
+	   user.setEmail("abc@gmail.com");
+	   user.setUsername("sid");
 	   userService.save(user);
 //	  
 //	   model.addAttribute("registerModel",user);
