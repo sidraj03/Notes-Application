@@ -22,7 +22,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private int userId;
+	private int userid;
 	
 	@Column(name="first_name")
 	private String firstname;
@@ -30,14 +30,14 @@ public class User {
 	@Column(name="last_name")
 	private String lastname;
 	
-	@Column(name="password")
-	private String password;
-	
-	@Column(name="email")
-	private String email;
-	
-	@Column(name="user_name")
-	private String username;
+//	@Column(name="password")
+//	private String password;
+//	
+//	@Column(name="email")
+//	private String email;
+//	
+//	@Column(name="user_name")
+//	private String username;
 	
 //	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 //	private List<Todo> todos;
@@ -46,12 +46,12 @@ public class User {
 		
 	}
 
-	public User(String firstname, String lastname, String password, String email,String username){   //List<Todo> todos) {
+	public User(String firstname, String lastname) { //String password, String email,String username){   //List<Todo> todos) {
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.password = password;
-		this.email = email;
-		this.username=username;
+//		this.password = password;
+//		this.email = email;
+//		this.username=username;
 //		this.todos=todos;
 	}
 
@@ -71,46 +71,47 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public String getPassword() {
-		return password;
+	public int getUserid() {
+		return userid;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public User(int userId, String firstname, String lastname, String password, String email, String username) {
-		this.userId = userId;
+	public User(int userid, String firstname, String lastname) {
+		this.userid = userid;
 		this.firstname = firstname;
 		this.lastname = lastname;
-		this.password = password;
-		this.email = email;
-		this.username = username;
 	}
+	
+	
+
+//	public String getPassword() {
+//		return password;
+//	}
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
+//
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
+//
+//	public String getUsername() {
+//		return username;
+//	}
+//
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
+
+	
 
 	
 //	public List<Todo> getTodos() {
