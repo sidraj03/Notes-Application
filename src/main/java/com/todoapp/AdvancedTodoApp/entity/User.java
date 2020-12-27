@@ -39,8 +39,8 @@ public class User {
 	@Column(name="user_name")
 	private String username;
 	
-	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	private List<Todo> todos;
+//	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+//	private List<Todo> todos;
 	
 	public User()
 	{
@@ -104,23 +104,23 @@ public class User {
 		this.userId = userId;
 	}
 
-	public List<Todo> getTodos() {
-		return todos;
-	}
-
-	public void setTodos(List<Todo> todos) {
-		this.todos = todos;
-	}
-	
-//	add a convenience method
-	public void addTodo(Todo theTodo) {
-			
-			if(theTodo== null) {
-				todos=new ArrayList<>();
-			}
-			
-			todos.add(theTodo);
-	}
+//	public List<Todo> getTodos() {
+//		return todos;
+//	}
+//
+//	public void setTodos(List<Todo> todos) {
+//		this.todos = todos;
+//	}
+//	
+////	add a convenience method
+//	public void addTodo(Todo theTodo) {
+//			
+//			if(theTodo== null) {
+//				todos=new ArrayList<>();
+//			}
+//			
+//			todos.add(theTodo);
+//	}
 
 	
 	

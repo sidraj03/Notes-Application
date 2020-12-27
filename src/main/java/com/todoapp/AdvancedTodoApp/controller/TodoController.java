@@ -30,11 +30,11 @@ public class TodoController {
 	public String listTodo(Principal principal,ModelMap map) {
 		
 		//get the user by username
-		String currentUser=principal.getName();
-		User user=userService.findByUsername(currentUser);
+//		String currentUser=principal.getName();
+//		User user=userService.findByUsername(currentUser);
 
 		//retrieve all the notes of a particular user 
-		List<Todo> list=user.getTodos();
+//		List<Todo> list=user.getTodos();
 		
 		//an empty todo object to add to the formtodo to get values
 		Todo todo=new Todo();
@@ -43,7 +43,7 @@ public class TodoController {
 		map.addAttribute("formTodo",todo);
 
 		//add the list to the newtodo model to get the list of todos
-		map.addAttribute("newTodo",list);
+//		map.addAttribute("newTodo",list);
 		
 		return "todo";
 	}
@@ -54,24 +54,24 @@ public class TodoController {
 //		return "registration";
 //	}
 //	
-	@PostMapping("/save")
-	
-	public String saveTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
-
-		  //get the user by username
-		  String currentUser=principal.getName();
-		  User user=userService.findByUsername(currentUser);
-		  
-		  todo.setUser(user);
-		  todoService.save(todo);
-		  return "redirect:/list";
-	}
-	
-	@GetMapping("/delete")
-	
-	public String displayTodo(@RequestParam("id") int theId){
-		todoService.deleteById(theId);
-		return "redirect:/list";
-	}
+//	@PostMapping("/save")
+//	
+//	public String saveTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
+//
+//		  //get the user by username
+//		  String currentUser=principal.getName();
+//		  User user=userService.findByUsername(currentUser);
+//		  
+//		  todo.setUser(user);
+//		  todoService.save(todo);
+//		  return "redirect:/list";
+//	}
+//	
+//	@GetMapping("/delete")
+//	
+//	public String displayTodo(@RequestParam("id") int theId){
+//		todoService.deleteById(theId);
+//		return "redirect:/list";
+//	}
 	
 }
