@@ -39,8 +39,8 @@ public class User {
 	@Column(name="user_name")
 	private String username;
 	
-//	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-//	private List<Todo> todos;
+	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	private List<Todo> todos;
 	
 	public User(){
 		

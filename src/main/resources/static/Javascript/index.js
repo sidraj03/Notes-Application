@@ -6,6 +6,7 @@ $(document).ready(function () {
     });
     // console.log("hi");
 });
-// $(function() {
-//     console.log( "ready!" );
-// });
+
+ $(function() {
+     console.log( "ready!" );
+ });
