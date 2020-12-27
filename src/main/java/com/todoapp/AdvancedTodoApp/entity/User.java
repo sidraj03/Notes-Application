@@ -115,23 +115,23 @@ public class User {
 	
 
 	
-//	public List<Todo> getTodos() {
-//		return todos;
-//	}
-//
-//	public void setTodos(List<Todo> todos) {
-//		this.todos = todos;
-//	}
-//	
-////	add a convenience method
-//	public void addTodo(Todo theTodo) {
-//			
-//			if(theTodo== null) {
-//				todos=new ArrayList<>();
-//			}
-//			
-//			todos.add(theTodo);
-//	}
+	public List<Todo> getTodos() {
+		return todos;
+	}
+
+	public void setTodos(List<Todo> todos) {
+		this.todos = todos;
+	}
+	
+//	add a convenience method
+	public void addTodo(Todo theTodo) {
+			
+			if(theTodo== null) {
+				todos=new ArrayList<>();
+			}
+			
+			todos.add(theTodo);
+	}
 
 	
 	

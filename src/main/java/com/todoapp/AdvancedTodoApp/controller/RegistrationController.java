@@ -21,16 +21,9 @@ public class RegistrationController {
 	@GetMapping("/register")
 	public String openRegisterForm(Model model){
 
+	//create empty user object 
 	   User user=new User();
-	   
-//	   user.setUserId(1);
-//	   user.setFirstname("sid");
-//	   user.setLastname("mig");
-//	   user.setPassword("12345");
-//	   user.setEmail("abc@gmail.com");
-//	   user.setUsername("sid");
-//	   userService.save(user);
-//	  
+	 //pass this to the model
 	   model.addAttribute("registerModel",user);
 	   return "registration";
 	}
@@ -39,7 +32,7 @@ public class RegistrationController {
 	
 	@PostMapping("/saveUser")
    public String addUser(@ModelAttribute("registerModel") User user) {
-		  //dont forget to change to 0 after debugging
+		 //save the user
 		 userService.save(user);
 		 return "redirect:/login";
 	}
