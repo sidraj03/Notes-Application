@@ -43,7 +43,7 @@ public class Todo {
 		this.title = title;
 		this.text = text;
 		this.category = category;
-//		this.user = user;
+		this.user = user;
 	}
 
 	public int getId() {

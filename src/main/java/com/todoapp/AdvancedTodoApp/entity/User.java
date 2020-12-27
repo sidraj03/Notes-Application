@@ -46,13 +46,13 @@ public class User {
 		
 	}
 
-	public User(String firstname, String lastname,String password, String email,String username){   //List<Todo> todos) {
+	public User(String firstname, String lastname,String password, String email,String username,List<Todo> todos) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.password = password;
 		this.email = email;
 		this.username=username;
-//		this.todos=todos;
+		this.todos=todos;
 	}
 
 	public String getFirstname() {
@@ -111,8 +111,6 @@ public class User {
 		this.email = email;
 		this.username = username;
 	}
-
-	
 
 	
 	public List<Todo> getTodos() {
