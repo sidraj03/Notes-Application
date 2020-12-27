@@ -20,14 +20,16 @@ public class RegistrationController {
 	
 	@GetMapping("/register")
 	public String openRegisterForm(Model model){
-//	   User user=new User();
-//	   user.setUserId(1);
-//	   user.setFirstname("sid");
-//	   user.setLastname("mig");
-//	   user.setPassword("12345");
-//	   user.setEmail("abc@gmail.com");
-//	   user.setUsername("sid");
-//	   userService.save(user);
+
+	   User user=new User();
+	   
+	   user.setUserId(1);
+	   user.setFirstname("sid");
+	   user.setLastname("mig");
+	   user.setPassword("12345");
+	   user.setEmail("abc@gmail.com");
+	   user.setUsername("sid");
+	   userService.save(user);
 //	  
 //	   model.addAttribute("registerModel",user);
 	   return "redirect:/login";

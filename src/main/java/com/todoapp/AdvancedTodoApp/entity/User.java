@@ -42,12 +42,11 @@ public class User {
 //	@OneToMany(mappedBy="user",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 //	private List<Todo> todos;
 	
-	public User()
-	{
+	public User(){
 		
 	}
 
-	public User(String firstname, String lastname, String password, String email,String username,List<Todo> todos) {
+	public User(String firstname, String lastname, String password, String email,String username){   //List<Todo> todos) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.password = password;

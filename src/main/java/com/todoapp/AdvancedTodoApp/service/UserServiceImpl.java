@@ -12,7 +12,7 @@ import com.todoapp.AdvancedTodoApp.entity.User;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserRepository userRepository;
+	private UserRepository userRepository;
 	
 	
 	@Override
