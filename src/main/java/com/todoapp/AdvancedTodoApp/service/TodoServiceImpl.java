@@ -1,6 +1,7 @@
 package com.todoapp.AdvancedTodoApp.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,20 @@ public class TodoServiceImpl implements TodoService {
 	@Override
 	@Transactional
 	public Todo findById(int theId) {
-		return null;
+		
+       Optional<Todo> todo=todoRepository.findById(theId);
+		
+		Todo theTodo=null;
+		
+		if(todo.isPresent()) {
+			theTodo=todo.get();
+		}
+		else {
+			//we didn't find the employee at the given id
+			throw new RuntimeException("Did not find the requested todo"); 
+		}
+		
+		return theTodo;
 	}
 
 	@Override

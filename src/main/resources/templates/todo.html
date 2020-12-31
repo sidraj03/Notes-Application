@@ -55,7 +55,7 @@
 	    <div id="content" class="container-fluid p-0">
 	    
 	    <!-- Navbar section -->
-	        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	        <nav id="navabar" class="navbar navbar-expand-lg navbar-light bg-white">
 	            <div class="container-fluid">
 	                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 	                            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
@@ -99,26 +99,25 @@
 	
 	             </form> 
 	        </div>
-	           
 	           <!-- Note cards -->
 	
 				<!-- <div class="row mb-2"> -->
 				
 				
-			   <div id="divrow" class="row">
-			    <div id="notesdiv" class="col-md-6 ms-4" th:each="todo:${newTodo}">
-				<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-				  
-				  <form action="#" th:action="@{/delete}" th:object="${formTodo}" method="post">
-				    <div class="tododiv col p-4 d-flex flex-column position-static">
-<!-- 				      <input type="hidden" th:value="${todo.id}" name="todoid">
- -->				      <strong class="d-inline-block mb-2 text-primary" th:text="${todo.title}?:''" ></strong>
-				        <p class="card-text mb-auto" th:text="${todo.text}?:''" ></p>
-				       <a href="#" th:href="@{/delete}+'/'+'?id='+${todo.id}" type="button" class="btn-image white-text" mdbBtn mdbWavesEffect></a>
-				        <!-- <button type="button" class="btn-image white-text" mdbBtn mdbWavesEffect></button> -->
-				        <!-- <img src="images/deleteicon.png"></img> -->
+			   <div id="divrow" class="row ms-4">
+			    <div class="col-md-3" th:each="todo:${newTodo}">
+				<div class="notesdiv row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				
+				    <div th:id="card+${todo.id}" class="tododiv col p-3 d-flex flex-column position-static">
+				     <input th:id="card+${todo.id}+id" type="hidden" th:value="${todo.id}">
+				      <strong th:id="card+${todo.id}+title"  class="contents d-inline-block mb-2 h5" th:text="${todo.title}?:''" ></strong>
+				        <p th:id="card+${todo.id}+text"  class="contents card-text mb-auto mt-2" th:text="${todo.text}?:''" ></p>
+				        <hr>
+				       <span>
+				       <a href="#" th:href="@{/delete}+'/'+'?id='+${todo.id}" type="button" class="delete btn-image white-text" mdbBtn mdbWavesEffect></a>
+				       <!-- <a href="#" type="button" class="edit" mdbBtn mdbWavesEffect></a> -->
+				       </span>
 				    </div>
-				   </form>
 				   
 				 </div>
 				  
@@ -127,10 +126,48 @@
 		    </div>
 					
 		</div>
+		
+		<div id="overlap" class="d-flex flex-column w-50 h-25">
+		 
+	    <form action="#" th:action="@{/update}" th:object="${formTodo}" method="post">
+		       
+		 <!--  hidden field for id -->
+	             <input id="editId" type="hidden" th:field="*{id}"> -->
+	              
+                 <!-- 	for title -->
+	               <div class="input-group mb-3 h-25">
+	                    <input id="editTitle" type="text" class="form-control" aria-label="title"
+	                        aria-describedby="basic-addon1" th:field="*{title}">
+	                </div>
+	           
+	           
+	               <!-- for content -->
+	                  
+	                 <div class="input-group mb-3 h-25">
+	                    <textarea id="editText" class="form-control" aria-label="With textarea" th:field="*{text}"></textarea>
+	                </div>
+	                
+	                <!-- button to save content -->
+	                <div id="save" class="input-group w-50 mt-2">
+	                    <button type="submit" class="btn btn-warning mx-2 ">Save Changes</button>
+	                </div>
+	        </form>
+	        
+	       </div>
+	        
  	  </div>
 		
 	<!-- 	</div> -->
 	
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 	    <!-- Optional JavaScript; choose one of the two! -->
 	
 	    <!-- Option 1: Bootstrap Bundle with Popper -->

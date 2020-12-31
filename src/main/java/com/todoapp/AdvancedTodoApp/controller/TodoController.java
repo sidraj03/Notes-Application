@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,8 +46,13 @@ public class TodoController {
 		//add the list to the newtodo model to get the list of todos
 		map.addAttribute("newTodo",list);
 		
+		//add the value to display the contents of the fo
+		map.addAttribute("editTodo",todo);
+		
 		return "todo";
 	}
+	
+//	public String listSingleTodo(@ModelAttribute("editTodo"))
 	
 //	@GetMapping("/register")
 //	
@@ -71,5 +77,22 @@ public class TodoController {
 		todoService.deleteById(theId);
 		return "redirect:/list";
 	}
+	
+	
+
+	@PostMapping("/update")
+   public String updateTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
+
+		  //get the user by username
+	      Todo currTodo=todoService.findById(todo.getId());
+	      
+	      currTodo.setTitle(todo.getTitle());
+	      currTodo.setText(todo.getText());
+		 
+		  todoService.save(currTodo);
+		  return "redirect:/list";
+	}
+
+
 	
 }
