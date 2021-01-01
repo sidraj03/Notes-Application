@@ -9,13 +9,16 @@ $('.delete').click(function (e) {
   e.stopPropagation();
 });
 
-$('.tododiv').click(function() {
-
+$('.tododiv').click(function(e) {
+  
+    e.stopPropagation();
+  
    if ( $('#overlap').css('visibility') == 'hidden' )
     $('#overlap').css('visibility','visible');
   
    $('#content').css('filter','blur(8px)');
    
+   //$(':button').prop('disabled', true);
    
    var id=$(this).attr('id');
    
@@ -33,9 +36,13 @@ $('.tododiv').click(function() {
   
 });
 
- $('#save').click(function () {            
+ $('#content').click(function () {            
     if ( $('#overlap').css('visibility') == 'visible' )
        $('#overlap').css('visibility','hidden');
+    
+    if($('#content').css('filter')=='blur(8px)' )
+       $('#content').css('filter','none');
+   
   });
 
 

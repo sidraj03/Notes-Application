@@ -29,7 +29,7 @@ public class MyUserDetailsService implements UserDetailsService {
 		return user.map(MyUserDetails::new).get();
 	}
 	
-	@Bean
-	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();} 
+//	@Bean
+//	public PasswordEncoder getPasswordEncoder() {return NoOpPasswordEncoder.getInstance();} 
 
 }
