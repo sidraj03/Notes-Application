@@ -10,7 +10,7 @@
 
 /* CSS for navbar in wrapper */
 #navbar{
-	background-color:white;
+	filter:none;
 }
 
 /* CSS for body and content in wrapper */
@@ -22,6 +22,9 @@ body {
 #content{
 	background-color:#ecf0f5;
 	filter: none;
+	overflow: auto;
+	/* overflow:none; */
+	/* width:max-content; */
    /*  -webkit-filter: blur(8px); */
 }
 
@@ -120,6 +123,13 @@ ul ul a {
     border:none;
 }
 
+
+/*CSS style for notes input area*/
+
+#newText{
+  height:190px;  	
+}
+
 /* CSS style for notes div */
 
 #divrow{
@@ -155,6 +165,3 @@ ul ul a {
 /* 	background-color:red; */
 }
 
-/* #notesinput{
-    /* height:70%;
-    width: 65%; */

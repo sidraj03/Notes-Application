@@ -30,9 +30,9 @@
 	
 	<!-- Section for sidebar -->
 	    <nav id="sidebar">
-	        <ul class="list-unstyled components">
+	        <ul class="list-unstyled components pt-4 mt-5">
 	            <li class="active">
-	                <a href="#" data-toggle="collapse" aria-expanded="false">Home</a>
+	                <a href="#" data-toggle="collapse" aria-expanded="false" class="sidebut">Home</a>
 	            <li>
 	
 	            <li>
@@ -55,19 +55,18 @@
 	    <div id="content" class="container-fluid p-0">
 	    
 	    <!-- Navbar section -->
-	        <nav id="navabar" class="navbar navbar-expand-lg navbar-light bg-white">
+	        <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
 	            <div class="container-fluid">
-	                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-	                            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-	                            aria-expanded="false" aria-label="Toggle navigation" id="sidebarCollapse">
-	                            <span class="navbar-toggler-icon"></span>
-	                    </button> -->
-	                <button type="button" class="btn btn-success mx-2" id="sidebarCollapse">Toggle</button>
+	                <button type="button" class="btn btn-outline-secondary" id="sidebarCollapse">
+	                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                     <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+                    </svg>
+	                </button>
 	
-	                <a class="navbar-brand" href="#">
-	                    <img src="images/logo.jpg" alt="" width="40" height="40">
+	        <!--         <a class="navbar-brand" href="#">
+	                    <img src="images/logo.jpg" alt="" width="40" height="40" style="margin-left:15px">
 	                </a>
-	 
+	  -->
 	                     
 	             <form class="container-fluid w-50">
 	                    <input type="text" class="form-control" placeholder="Search" aria-label="Username"
@@ -82,15 +81,16 @@
 	        
 	        <!--form to get new note -->
 	        
-	        <div id="notesinput" class="container-fluid mt-4">
+	        <div id="notesinput" class="container-fluid mt-5 pt-4">
 	           <form action="#" th:action="@{/save}" th:object="${formTodo}" method="post">
-	                <div class="input-group mb-3 w-50 m-auto">
+	                
+	                <div id="newTitle" class="input-group w-50 m-auto">
 	                    <input type="text" class="form-control" placeholder="Title" aria-label="Username"
 	                        aria-describedby="basic-addon1" th:field="*{title}">
 	                </div>
 	
 	                <div class="input-group w-50 m-auto mt-0">
-	                    <textarea class="form-control" aria-label="With textarea" th:field="*{text}"></textarea>
+	                    <textarea  id="newText" class="form-control" aria-label="With textarea" th:field="*{text}"></textarea>
 	                </div>
 	
 	                <div class="input-group w-50 m-auto my-4">
