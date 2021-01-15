@@ -53,6 +53,16 @@ public class TodoServiceImpl implements TodoService {
 		 todoRepository.deleteById(theId);
 	}
 
+	@Override
+	@Transactional
+	public void updateNotesCategory(int notesId) {
+		todoRepository.updateNotesCategory(notesId);
+	}
 
+//	@Override
+//	@Transactional
+//	public List<> selectUnarchived() {
+//		return todoRepository.selectunarchived();
+//	}
 
 }

@@ -14,4 +14,8 @@ public interface TodoService {
 	
 	public void deleteById(int theId);
 	
+	public void updateNotesCategory(int notesId);
+//	
+//	public List<Todo>selectUnarchived();
+	
 }

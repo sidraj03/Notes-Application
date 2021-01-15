@@ -1,11 +1,11 @@
 package com.todoapp.AdvancedTodoApp.controller;
 
 import java.security.Principal;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,6 +37,16 @@ public class TodoController {
 		//retrieve all the notes of a particular user 
 		List<Todo> list=user.getTodos();
 		
+		for (Iterator<Todo> iterator = list.iterator(); iterator.hasNext(); ) {
+		    Todo todo = iterator.next();
+		   if(todo.getCategory()==null)
+			   continue;
+		   else if(todo.getCategory().equals("archive")) {
+		        iterator.remove();
+		     }
+		    
+		}
+		
 		//an empty todo object to add to the formtodo to get values
 		Todo todo=new Todo();
 		
@@ -51,15 +61,7 @@ public class TodoController {
 		
 		return "todo";
 	}
-	
-//	public String listSingleTodo(@ModelAttribute("editTodo"))
-	
-//	@GetMapping("/register")
-//	
-//	public String takeInput() {
-//		return "registration";
-//	}
-//	
+		
 	@PostMapping("/save")
 	public String saveTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
 
@@ -71,7 +73,7 @@ public class TodoController {
 		  todoService.save(todo);
 		  return "redirect:/list";
 	}
-//	
+	
 	@GetMapping("/delete")
 	public String displayTodo(@RequestParam("id") int theId){
 		todoService.deleteById(theId);
@@ -79,9 +81,8 @@ public class TodoController {
 	}
 	
 	
-
 	@PostMapping("/update")
-   public String updateTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
+    public String updateTodo(Principal principal,@ModelAttribute("formTodo") Todo todo) {		  
 
 		  //get the user by username
 	      Todo currTodo=todoService.findById(todo.getId());
@@ -92,7 +93,14 @@ public class TodoController {
 		  todoService.save(currTodo);
 		  return "redirect:/list";
 	}
-
+	
+	@GetMapping("/category")
+	
+	public String updateTodoCategory(@RequestParam("id") int noteId){
+		//archive todo
+		todoService.updateNotesCategory(noteId);
+		return "redirect:/list";
+	}
 
 	
 }
